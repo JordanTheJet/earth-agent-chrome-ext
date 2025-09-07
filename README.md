@@ -3,6 +3,7 @@
 <div align="center">
   <img src="src/assets/mydesign/Robot-earth-transparent-cut-edge.png" alt="Earth Agent Robot" width="200"/>
 </div>
+Building upon the Earth Agent Chrome Extension to work with Woodwell Climate research soil data
 
 Cursor like AI-agent for Google Earth Engine right in your browser as a Chrome extension. It helps you do anything related to Google Earth Engine automatically through chatting. Hatched from [sundai.club](https://www.sundai.club/projects/ad38a4e9-5cd5-4a90-b66c-c3f811cc5e8a).
 
@@ -19,13 +20,8 @@ Cursor like AI-agent for Google Earth Engine right in your browser as a Chrome e
 
 ## Installation
 
-### Option 1: Install from Chrome Web Store (Easiest & Recommended)
 
-1.  Visit the [Earth Agent page on the Chrome Web Store](https://chromewebstore.google.com/detail/earth-agent/hmpjiipbhhnppfdahieaafhdgdmhaple).
-2.  Click "Add to Chrome".
-3.  The extension will be added to your browser and will appear in your Chrome toolbar.
-
-### Option 2: Download from GitHub Releases
+### Option 1: Download from GitHub Releases
 
 1. Go to the [Releases page](https://github.com/wybert/earth-agent-chrome-ext/releases)
 2. Download the latest `earth-agent-extension.zip`
@@ -35,12 +31,20 @@ Cursor like AI-agent for Google Earth Engine right in your browser as a Chrome e
 6. Click "Load unpacked" and select the extracted folder
 7. The extension will appear in your Chrome toolbar
 
-### Option 3: Install from Source
+### Option 2: Install from Source
 
 1. Clone the repository
 2. Install dependencies with `npm install`
 3. Build the extension with `npm run build`
 4. Load the unpacked extension from the `dist` directory in Chrome
+
+### In Progress: Install from Chrome Web Store 
+
+You can download the older version from XiaoKang Fu here:
+
+1.  Visit the [Earth Agent page on the Chrome Web Store](https://chromewebstore.google.com/detail/earth-agent/hmpjiipbhhnppfdahieaafhdgdmhaple).
+2.  Click "Add to Chrome".
+3.  The extension will be added to your browser and will appear in your Chrome toolbar.
 
 ## Configuration
 

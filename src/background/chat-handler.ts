@@ -7,6 +7,7 @@ import { createOllama } from 'ollama-ai-provider';
 import { z } from 'zod';
 import { getDocumentation } from '../lib/tools/context7';
 import { snapshot as browserSnapshot, SnapshotResponse } from '../lib/tools/browser/snapshot';
+import { generateDatasetContext } from '../config/dataset-context';
 
 // Available providers
 export type Provider = 'openai' | 'anthropic' | 'google' | 'qwen' | 'ollama';
@@ -102,8 +103,8 @@ const corsProxyFetch = async (input: string | URL | Request, options: RequestIni
   }
 };
 
-// Earth Engine system prompt with domain expertise
-export const GEE_SYSTEM_PROMPT = `You are Earth Engine Assistant, an AI specialized in Google Earth Engine (GEE) geospatial analysis.
+// Base Earth Engine system prompt template
+const GEE_BASE_SYSTEM_PROMPT = `You are Earth Engine Assistant, an AI specialized in Google Earth Engine (GEE) geospatial analysis.
 
 Your capabilities:
 - Provide code examples for GEE tasks like image processing, classification, and visualization
@@ -197,6 +198,21 @@ Code Implementation:
 - If a user is asked to "try this code", automatically offer to insert or run it for them
 
 Speak in a helpful, educational tone while providing practical guidance for Earth Engine tasks.`;
+
+/**
+ * Generate the complete system prompt with optional dataset context
+ * @param datasetKey - Optional key to specify which dataset context to inject
+ * @returns Complete system prompt with dataset context
+ */
+export function generateSystemPrompt(datasetKey?: string): string {
+  const datasetContext = generateDatasetContext(datasetKey);
+  return GEE_BASE_SYSTEM_PROMPT + datasetContext;
+}
+
+/**
+ * Default system prompt with primary dataset context
+ */
+export const GEE_SYSTEM_PROMPT = generateSystemPrompt();
 
 /**
  * Handle chat messages from the UI
